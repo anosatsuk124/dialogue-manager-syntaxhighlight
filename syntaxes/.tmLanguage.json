@@ -1,32 +1,121 @@
 {
-	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
-	"name": "dialogue",
-	"patterns": [
-		{
-			"include": "#keywords"
-		},
-		{
-			"include": "#strings"
-		}
-	],
-	"repository": {
-		"keywords": {
-			"patterns": [{
-				"name": "keyword.control.",
-				"match": "\\b(if|while|for|return)\\b"
-			}]
-		},
-		"strings": {
-			"name": "string.quoted.double.",
-			"begin": "\"",
-			"end": "\"",
-			"patterns": [
-				{
-					"name": "constant.character.escape.",
-					"match": "\\\\."
-				}
-			]
-		}
-	},
-	"scopeName": ""
+  "scopeName": "text.dialogue",
+  "$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+  "name": "dialogue",
+  "patterns": [
+    {
+      "include": "#flows"
+    },
+    {
+      "include": "#operator"
+    },
+    {
+      "include": "#import"
+    },
+    {
+      "include": "#title"
+    },
+    {
+      "include": "#comment"
+    },
+    {
+      "include": "#quotedouble"
+    },
+    {
+      "include": "#mutation"
+    },
+    {
+      "include": "#jumps"
+    },
+    {
+      "include": "#text"
+    },
+    {
+      "include": "#boolean"
+    }
+  ],
+  "repository": {
+    "flows": {
+      "patterns": [
+        {
+          "name": "keyword.control.flow",
+          "match": "\\b(if|elif|else|endif)\\b"
+        }
+      ]
+    },
+    "operator": {
+      "patterns": [
+        {
+          "name": "keyword.operator",
+          "match": "\\b(in|and|or|not)\\b"
+        }
+      ]
+    },
+    "import": {
+      "patterns": [
+        {
+          "name": "keyword.import",
+          "match": "\\b(import|as)\\b"
+        }
+      ]
+    },
+    "title": {
+      "name": "keyword.title",
+      "begin": "\\~\\ .+",
+      "end": "$"
+    },
+    "comment": {
+      "name": "comment.line.hash",
+      "begin": "#",
+      "end": "##|$"
+    },
+    "mutation": {
+      "patterns": [
+        {
+          "name": "entity.name.function",
+          "match": "\\b(do|set)\\b"
+        }
+      ]
+    },
+    "jumps": {
+      "name": "keyword.control.jump",
+      "begin": "=>",
+      "end": "<=|$"
+    },
+    "text": {
+      "name": "keyword.control.text",
+      "begin": ":\\ ",
+      "end": "::|$"
+    },
+    "boolean": {
+      "patterns": [
+        {
+          "name": "constant.language",
+          "match": "\\b(true|false)\\b"
+        }
+      ]
+    },
+    "quotesingle": {
+      "name": "string.quoted.double",
+      "begin": "\\'",
+      "end": "\\'",
+      "patterns": [
+        {
+          "name": "constant.character.escape",
+          "match": "\\\\."
+        }
+      ]
+    },
+    "quotedouble": {
+      "name": "string.quoted.double",
+      "begin": "\"",
+      "end": "\"",
+      "patterns": [
+        {
+          "name": "constant.character.escape",
+          "match": "\\\\."
+        }
+      ]
+    }
+  }
 }

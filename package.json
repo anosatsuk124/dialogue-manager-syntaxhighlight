@@ -11,14 +11,14 @@
   ],
   "contributes": {
     "languages": [{
-      "id": "",
+      "id": "dialogue",
       "aliases": ["dialogue", ""],
       "extensions": [".dialogue"],
       "configuration": "./language-configuration.json"
     }],
     "grammars": [{
-      "language": "",
-      "scopeName": "",
+      "language": "dialogue",
+      "scopeName": "text.dialogue",
       "path": "./syntaxes/.tmLanguage.json"
     }]
   }
