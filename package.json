@@ -1,0 +1,25 @@
+{
+  "name": "dialogue-manager-syntaxhighlight",
+  "displayName": "Dialogue Manager Syntaxhighlight",
+  "description": "",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.73.0"
+  },
+  "categories": [
+    "Programming Languages"
+  ],
+  "contributes": {
+    "languages": [{
+      "id": "",
+      "aliases": ["dialogue", ""],
+      "extensions": [".dialogue"],
+      "configuration": "./language-configuration.json"
+    }],
+    "grammars": [{
+      "language": "",
+      "scopeName": "",
+      "path": "./syntaxes/.tmLanguage.json"
+    }]
+  }
+}
